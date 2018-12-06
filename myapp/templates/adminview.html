@@ -1,0 +1,87 @@
+<table>
+        <body background="../static/img1.jpg">  
+<table>
+        <style>
+            h1{
+                font-family: cursive;
+                color:olivedrab
+            }
+        </style>
+        <h1>ADMIN</h1>
+   <tr>
+    <td><a href="maincategory">Add Category</a></td>
+   </tr>
+   <tr>
+   <td><a href="subcategoryview">Add subCategory</a></td>
+  </tr>
+</table>
+
+  <table border=2>    
+    <h1> DETAILS</h1>
+    <thead>
+        <tr>
+            <th>product Id</th>
+            <th>product Name</th>
+            <th>Description</th>
+            <th>price</th>
+            <th>Active</th>
+            <th>Subcategory Name</th>
+            <th>supplier Name </th>
+            
+        </tr>
+    </thead>
+
+     <tbody>
+         {% for d1 in data1 %}
+   <tr>
+     <td>{{d1.0}}</td>
+     <td>{{d1.1}}</td>
+     <td>{{d1.2}}</td>
+     <td>{{d1.3}}</td>
+     <td>{{d1.4}}</td>
+     <td>{{d1.5}}</td>
+     <td>{{d1.6}}</td>
+     <td>
+     <a href="approve?p_id={{d1.0}}">APPROVE</a>
+    </td> 
+   </tr>
+   
+{% endfor %}
+</table>
+
+</table>
+
+<table border=2>    
+  <h1>Updated Details</h1>
+  <thead>
+      <tr>
+          <th>product Id</th>
+          <th>product Name</th>
+          <th>Description</th>
+          <th>price</th>
+          <th>Active</th>
+          <th>Subcategory Name</th>
+          <th>supplier Name </th>
+         
+      </tr>
+  </thead>
+
+   <tbody>
+       {% for d in data %}
+ <tr>
+   <td>{{d.0}}</td>
+   <td>{{d.1}}</td>
+   <td>{{d.2}}</td>
+   <td>{{d.3}}</td>
+   <td>{{d.4}}</td>
+   <td>{{d.5}}</td>
+   <td>{{d.6}}</td>
+  
+ </tr>
+ 
+{% endfor %}
+</table>
+
+</body>
+</table>
+

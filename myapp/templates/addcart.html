@@ -1,0 +1,33 @@
+
+  <table border=2 >
+        <style>
+                h1{
+                    font-family: cursive;
+                    color: darkorange
+                }
+                th{
+                   color: deeppink 
+                }
+            </style>
+        
+    <h1>CART</h1>
+    <body background="../static/img4.png"> 
+    <thead>
+        <tr>
+                <th>Product Name</th>
+                <th>Product Description</th>
+                <th>Price</th>   
+        </tr>
+    </thead>
+
+    <tbody>
+        {% for d in data1 %}
+    <tr>
+       <td> {{d.1}}</td>
+       <td> {{d.2}}</td>
+       <td> {{d.3}}</td>
+    </tr>
+       {% endfor %}
+    </tbody>
+</table>
+

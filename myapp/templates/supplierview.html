@@ -1,0 +1,125 @@
+<html>
+<style>
+ h2{
+        color:black;font-family: cursive;
+    }
+    td{
+        color:darkred
+    }
+    input[type=submit] {
+    padding:5px 15px; 
+    background:#ccc; 
+    border:0 none;
+    cursor:pointer;
+    -webkit-border-radius: 5px;
+    border-radius: 5px; 
+    font-family: cursive;
+}
+input[type=text] {
+    padding:5px; 
+    border:2px solid #ccc; 
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+}
+
+input[type=text]:focus {
+    border-color:#333;
+}
+.textStyle{
+    font-family: cursive;
+    color:black;
+}
+</style>
+ <body background="../static/img1.jpg"> 
+
+<script src="../static/jquery-3.3.1.min.js"></script>
+
+<h2 ALIGN="center">Create Product</h2>
+
+<form action="" method="POST">
+        {% csrf_token %}
+<table border="0" align="center">
+<tbody class="textStyle">
+
+<tr>
+<td><label for="Pname">Product Name: </label></td>
+<td><input id="Pname" maxlength="50" name="Pname" type="text" /></td>
+</tr>
+
+<tr>
+<td><label for="maincategory">Main Category: </label></td>
+<td>
+        <!-- <select name="maincategory" id="maincategory">
+        {% for d in data %}
+            <option value="{{d.0}}">{{d.1}}</option>
+        {% endfor %}
+        </select> -->
+        <select class="form-control " name="catid" id="cat">
+              <option value="" selected>Select Your category</option> 
+                {% for d in data %}
+            <option value="{{d.0}}">{{d.1}}</option>
+            {% endfor%}
+        </select>
+    </td>
+</tr>
+
+<tr>
+        <td><label for="subcatid">Sub Category: </label></td>
+        <td>
+                <select name="subcatid" id="subcatid">
+                <!-- {% for d in data1 %} -->
+                    <option value="{{data1.0}}">{{data1.1}}</option>
+                <!-- {% endfor %} -->
+                </select>
+            </td>
+        </tr>
+        
+<tr>
+        <td><label for="price">Price: </label></td>
+        <td><input id="price" maxlength="50" name="price" type="text" /></td>
+        </tr>
+        
+<tr>
+        <td><label for="desc">Description: </label></td>
+        <td><input id="desc" maxlength="50" name="desc" type="text" /></td>
+        </tr>
+<tr>
+<td align="right"><input name="Submit" type="Submit" value="Save" /></td>
+</tr>
+
+</tbody>
+</table>
+</form>
+<script>
+        
+        $("#cat").change(function(){
+        debugger;
+        var entity=new Array();
+        var cid=$("#cat").val();
+        var data=JSON.stringify(entity);
+        var urls='/subcatid/?dataid='+ cid;
+
+        $.ajax({
+            
+            url:urls,
+            /*data:data,
+            dataType:"JSON",
+            contentType:"Application/json",*/
+              success:function(data){
+                  $('select[name=subcatid]').empty()
+                  $.each(data,function(text,text){
+                     $('select[name=subcatid]').append($('<option></option').val(text[0]).html(text[1]));
+
+                  });
+                
+            }
+          
+        })
+        });
+        
+       
+    </script>
+    </body>
+
+</html>
+       

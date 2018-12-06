@@ -1,0 +1,37 @@
+<form action="" method="POST"enctype="multipart/form-data">
+    {% csrf_token %}
+  <table align='center'>
+      <style>
+          body{
+              color:forestgreen;
+              font-family: cursive
+          }
+      </style>
+        <body background="../static/img1.jpg">   
+            <tr><td align='center'><h1>SUB CATEGORY</h1</td></tr>
+           
+            <tr>
+            <td align='center'><b>SubCategory Name</b></td>
+            <td><input type="text" name="sname" required></td>
+            </tr>
+
+            <tr>
+                    <td align='center'>Main category</td>
+                    <td>
+                    <select name="maincategory">
+                    {% for d in data %}
+                        <option value="{{d.0}}">{{d.1}}</option>
+                    {% endfor %}
+                    </select>
+                </td>
+            </tr>
+        
+        
+            <tr>
+                <td align='center'> <button type="submit">save</button></td>
+            </tr>
+      </body>
+            
+</table>
+</form>
+     

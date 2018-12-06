@@ -1,0 +1,39 @@
+<table border=2>
+    <style>
+        h1{
+            font-family: cursive;
+            color: crimson
+        }
+    </style>    
+        <h1>Product Details</h1>
+        <body background="../static/img3.png"> 
+        <thead>
+            <tr>
+                <th>product Id</th>
+                <th>product Name</th>
+                <th>Description</th>
+                <th>price</th> 
+                <th>Subcategory Name</th> 
+            </tr>
+        </thead>
+      
+         <tbody>
+             {% for d in data %}
+       <tr>
+         <td>{{d.0}}</td>
+         <td>{{d.1}}</td>
+         <td>{{d.2}}</td>
+         <td>{{d.3}}</td>
+         <td>{{d.4}}</td>
+         <td>
+              <a href="addcart?p_id={{d.0}}">Add to cart</a>
+         </td>
+       </tr>
+       
+      {% endfor %}
+      </table>
+      
+      </body>
+      </table>
+      
+      
